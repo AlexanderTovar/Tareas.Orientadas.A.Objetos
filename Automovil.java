@@ -1,79 +1,58 @@
-import java.awt.*;
-import java.util.ArrayList;
-
-public class Automovil {
-    public String marca;
-    private String subMarca;
-    private byte modelo; //2000 + byte
-    private Color color;
-
-    public Automovil() { //Constructor por defecto
+public class Automovil extends Vehiculo{
+    protected int velocidadMaxima;
+    protected int consumoCombustible;
+    protected String confortEquipamiento;
+    public void llenadoTanque (){
+        System.out.println("Llenando tanque de gasolina...");
+    }
+    public void bajarVidrios(){
+        System.out.println("Bajando los vidrios...");
+    }
+    public Automovil() {
     }
 
-    public Automovil(String marca, String subMarca, byte modelo, Color color) {
-        this.marca = marca;
-        this.subMarca = subMarca;
-        this.modelo = modelo;
-        this.color = color;
+    public Automovil(int capacidadPersonas, String tipoCombustible,
+                     String capacidadCarga, int velocidadMaxima, int consumoCombustible,
+                     String confortEquipamiento) {
+        super(capacidadPersonas, tipoCombustible, capacidadCarga);
+        this.velocidadMaxima = velocidadMaxima;
+        this.consumoCombustible = consumoCombustible;
+        this.confortEquipamiento = confortEquipamiento;
     }
 
-    public Automovil(Color color) {
-        this.color = color;
+    public int getVelocidadMaxima() {
+        return velocidadMaxima;
     }
 
-    public String getMarca() {
-        return marca;
+    public void setVelocidadMaxima(int velocidadMaxima) {
+        this.velocidadMaxima = velocidadMaxima;
     }
 
-    public void setMarca(String m) {
-        ArrayList<String> marcas = new ArrayList<>();
-        marcas.add("VW");
-        marcas.add("HONDA");
-        marcas.add("TESLA");
-        marcas.add("NISSAN");
-        marcas.add("MITSUBISHI");
-        marcas.add("TOYOTA");
-
-        if(marcas.contains(m.toUpperCase())){
-            this.marca = m;
-        } else{
-            System.out.println("Esa marca no existe");
-        }
-
-        this.marca = m;
+    public int getConsumoCombustible() {
+        return consumoCombustible;
     }
 
-    public String getSubMarca() {
-        return subMarca;
+    public void setConsumoCombustible(int consumoCombustible) {
+        this.consumoCombustible = consumoCombustible;
     }
 
-    public void setSubMarca(String subMarca) {
-        this.subMarca = subMarca;
+    public String getConfortEquipamiento() {
+        return confortEquipamiento;
     }
 
-    public byte getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(byte modelo) {
-        this.modelo = modelo;
-    }
-
-    public Color getColor() {
-        return color;
-    }
-
-    public void setColor(Color color) {
-        this.color = color;
+    public void setConfortEquipamiento(String confortEquipamiento) {
+        this.confortEquipamiento = confortEquipamiento;
     }
 
     @Override
     public String toString() {
         return "Automovil{" +
-                "marca='" + marca + '\'' +
-                ", subMarca='" + subMarca + '\'' +
-                ", modelo=" + modelo +
-                ", color=" + color +
+                "velocidadMaxima=" + velocidadMaxima +
+                ", consumoCombustible=" + consumoCombustible +
+                ", confortEquipamiento='" + confortEquipamiento + '\'' +
+                ", capacidadPersonas=" + capacidadPersonas +
+                ", tipoCombustible='" + tipoCombustible + '\'' +
+                ", capacidadCarga='" + capacidadCarga + '\'' +
                 '}';
     }
 }
